@@ -38,6 +38,15 @@ a:hover {
 
 body#about img {
     height: 15em;
+    display: inline;
+    margin-right: var(--horizontal-space);
+    margin-bottom: var(--vertical-space); 
+    border: 1px solid var(--light-color); 
+}
+@media screen and (min-width: 25em) {
+    body#about img {
+    float:left; 
+    }
 }
 
 body#portfolio img{
@@ -54,14 +63,15 @@ body {
                          "nav nav"
                          "main main"
                          "foot foot";
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: auto 4fr;
     grid-template-rows: auto auto 1fr auto; 
 }
 
 @media Screen and (min-width: 25em){
     body {
         grid-template-areas: "head head"
-                             "nav main"
+                            "nav nav"
+                             "main main"
                              "foot foot";
         grid-template-rows: auto 1fr auto; 
     }
@@ -79,12 +89,17 @@ body > header {
 
 body > nav {
     grid-area: nav;
-
+    background-color:var(--light-color);
 }
 
 body > nav ul {
     list-style-type: none;
     padding: 0;
+}
+
+body > nav ul li {
+    display: inline-block; 
+    padding-right: 1em; 
 }
 
 body > main {
@@ -100,6 +115,10 @@ body > footer {
 header, footer {
     padding-top: var(--vertical-space);
     padding-bottom: var(--vertical-space);
+}
+
+header {
+    padding-bottom: 0; 
 }
 
 header h1, footer h1 {
@@ -130,3 +149,14 @@ body#portfolio ul#portfolioItems li img {
     max-width: 100%; 
 }
 
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 60px;
+  }
