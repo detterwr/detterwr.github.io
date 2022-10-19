@@ -25,8 +25,10 @@ for (i = 0; i < coll.length; i++) {
     var content = this.nextElementSibling;
     if (content.style.display === "block") {
       content.style.display = "none";
+      this.value = "Close Collapsible";
     } else {
       content.style.display = "block";
+      this.value = "Open Collapsible"
     }
   });
 } 
